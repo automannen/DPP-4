@@ -1,1 +1,38 @@
 ./bin/spark-class org.apache.spark.deploy.SparkSubmit examples/src/main/python/pi.py
+
+building image
+docker build -t livytest .
+docker run -it -p 8998:8998 livytest bash
+curl https://dlcdn.apache.org/incubator/livy/0.7.1-incubating/apache-livy-0.7.1-incubating-bin.zip -O
+./livy/bin/livy-server
+
+docker build -t livytest .
+
+
+
+docker compose file gebeuren
+services daarin knal je alle containers die je wilt mk
+environment variables gwn in proces die variabelen
+ports
+hostport:containerport
+
+
+over networks
+wnr je een docker container compose up doet dan wordt er een
+network gemaakt die je directory naam _ default heeft. hier
+zullen de containers mee verbinden onder
+de naam van de service. de containers kunnen
+onder die naam de goede ip van de container
+opzoeken
+je kan je eigen network mk (top level network) met de networks key
+en dan een driver kiezen
+
+de livy server bevat een volume omdat er een env variabele gezet is
+maar idk of het werkt 
+
+
+docker image = a file in docker to execute code in a docker
+container. set of instructions to build docker container
+
+apache livy is a service that enables easy inter
+action with a spark cluster over REST API
